@@ -46,7 +46,7 @@ function wrap(realFunc) {
 }
 
 var isHookActive = false
-exports.hook = function () {
+const hook = function () {
   isHookActive = true
 
   global.it = wrap(global.it)
@@ -194,6 +194,7 @@ function Spec(runner) {
     console.log('==============================================')
     console.log(chalk.bold(process.cwd()))
     console.log('==============================================')
+    hook()
   })
 
   runner.on('suite', function (suite) {

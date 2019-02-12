@@ -1,6 +1,7 @@
 {
   "name": "@novacore/mocha-reporter",
   "version": "0.1.1",
+  "private": true,
   "description": "Mocha reporter, enhanced",
   "main": "index.js",
   "scripts": {

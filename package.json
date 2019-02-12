@@ -1,5 +1,5 @@
 {
-  "name": "@novacore/mocha-reporter",
+  "name": "@novacredit/mocha-reporter",
   "version": "0.1.1",
   "private": true,
   "description": "Mocha reporter, enhanced",

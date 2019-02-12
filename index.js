@@ -206,7 +206,7 @@ function Spec(runner) {
     indents += 1
     flushLogStackIfDebug(indent())
 
-    let colorize = chalk.magenta
+    let colorize = chalk.blue
 
     // For some reason, windows doesn't like magenta
     if (process.platform === 'win32') {

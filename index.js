@@ -92,7 +92,6 @@ function Spec(runner) {
   let oldStdout = process.stdout.write
   let oldStderr = process.stderr.write
   var interceptedOutput = []
-
   function createIntercept() {
     process.stdout.write = process.stderr.write = function (data) {
       interceptedOutput.push(data)
@@ -192,7 +191,9 @@ function Spec(runner) {
 
   runner.on('start', function () {
     console.log(chalk.reset(' '))
-    createIntercept()
+    console.log('==============================================')
+    console.log(chalk.bold(process.cwd()))
+    console.log('==============================================')
   })
 
   runner.on('suite', function (suite) {
@@ -311,7 +312,7 @@ function Spec(runner) {
     unhookIntercept()
     flushLogStack('')
 
-    console.log(chalk[barColor].bold(topLine))
+    console.log( [barColor].bold(topLine))
 
     // passes
     fmt = chalk.bold(color('green', ' %d'))

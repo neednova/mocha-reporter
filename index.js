@@ -313,7 +313,7 @@ function Spec(runner) {
     unhookIntercept()
     flushLogStack('')
 
-    console.log([barColor].bold(topLine))
+    console.log(chalk[barColor].bold(topLine))
 
     // passes
     fmt = chalk.bold(color('green', ' %d'))

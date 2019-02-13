@@ -1,7 +1,6 @@
 {
   "name": "@novacredit/mocha-reporter",
-  "version": "0.1.1",
-  "private": true,
+  "version": "0.1.2",
   "description": "Mocha reporter, enhanced",
   "main": "index.js",
   "scripts": {

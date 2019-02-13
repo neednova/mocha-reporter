@@ -46,7 +46,7 @@ function wrap(realFunc) {
 }
 
 var isHookActive = false
-exports.hook = function () {
+const hook = function () {
   isHookActive = true
 
   global.it = wrap(global.it)
@@ -92,7 +92,6 @@ function Spec(runner) {
   let oldStdout = process.stdout.write
   let oldStderr = process.stderr.write
   var interceptedOutput = []
-
   function createIntercept() {
     process.stdout.write = process.stderr.write = function (data) {
       interceptedOutput.push(data)
@@ -192,7 +191,10 @@ function Spec(runner) {
 
   runner.on('start', function () {
     console.log(chalk.reset(' '))
-    createIntercept()
+    console.log('==============================================')
+    console.log(chalk.bold(process.cwd()))
+    console.log('==============================================')
+    hook()
   })
 
   runner.on('suite', function (suite) {
@@ -204,7 +206,7 @@ function Spec(runner) {
     indents += 1
     flushLogStackIfDebug(indent())
 
-    let colorize = chalk.magenta
+    let colorize = chalk.blue
 
     // For some reason, windows doesn't like magenta
     if (process.platform === 'win32') {
@@ -311,7 +313,7 @@ function Spec(runner) {
     unhookIntercept()
     flushLogStack('')
 
-    console.log(chalk[barColor].bold(topLine))
+    console.log([barColor].bold(topLine))
 
     // passes
     fmt = chalk.bold(color('green', ' %d'))

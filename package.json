@@ -1,6 +1,6 @@
 {
   "name": "@novacredit/mocha-reporter",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Mocha reporter, enhanced",
   "main": "index.js",
   "scripts": {
@@ -33,5 +33,8 @@
     "eslint-plugin-json": "1.2.0",
     "git-message": "1.0.1",
     "pre-commit": "1.2.2"
+  },
+  "resolutions": {
+    "format-error/prettyjson": "1.2.1"
   }
 }

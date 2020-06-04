@@ -75,6 +75,7 @@ function Spec(runner) {
 
   var indents = 0
   var n = 0
+  const failTitles = [];
 
   function indent() {
     return Array(indents).join('  ')
@@ -290,6 +291,7 @@ function Spec(runner) {
 
     console.log()
     console.log(indent() + color('fail', '  %d) %s'), ++n, test.title)
+    failTitles.push(test.title)
 
     flushLogStack(indent() + '     ', 'reset')
     createIntercept()
@@ -334,6 +336,8 @@ function Spec(runner) {
       fmt = chalk.bold(color('fail', ' %d'))
         + color('fail', ' failing')
       console.log(fmt, stats.failures)
+      console.log(chalk.bold(color('fail', 'Failed tests:')))
+      failTitles.forEach((title, idx) => console.log(color('fail', `   (${idx}) ${title}`)))
     }
 
     fmt = chalk.gray(' Took ')

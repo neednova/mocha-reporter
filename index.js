@@ -226,7 +226,9 @@ function Spec(runner) {
   runner.on('suite end', function () {
     unhookIntercept()
     flushLogStackIfDebug(indent())
-    indents -= 1
+    if (indents > 0 {
+      indents -= 1;
+    }
 
     if (someTestsRan) {
       console.log()
